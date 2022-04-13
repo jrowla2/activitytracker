@@ -31,14 +31,14 @@ const router = express.Router()
 // GET /examples
 router.get('/tracks', requireToken, (req, res, next) => {
   Track.find()
-    .then(examples => {
+    .then(tracks => {
       // `examples` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return examples.map(example => example.toObject())
+      return tracks.map(track => track.toObject())
     })
     // respond with status 200 and JSON of the examples
-    .then(examples => res.status(200).json({ examples: examples }))
+    .then(tracks => res.status(200).json({ tracks: tracks }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
@@ -77,17 +77,17 @@ router.post('/tracks', requireToken, (req, res, next) => {
 router.patch('/tracks/:id', requireToken, removeBlanks, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
-  delete req.body.example.owner
+  delete req.body.track.owner
 
   Track.findById(req.params.id)
     .then(handle404)
-    .then(example => {
+    .then(track => {
       // pass the `req` object and the Mongoose record to `requireOwnership`
       // it will throw an error if the current user isn't the owner
-      requireOwnership(req, example)
+      requireOwnership(req, track)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return example.updateOne(req.body.example)
+      return track.updateOne(req.body.track)
     })
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
@@ -100,11 +100,11 @@ router.patch('/tracks/:id', requireToken, removeBlanks, (req, res, next) => {
 router.delete('/tracks/:id', requireToken, (req, res, next) => {
   Track.findById(req.params.id)
     .then(handle404)
-    .then(example => {
+    .then(track => {
       // throw an error if current user doesn't own `example`
-      requireOwnership(req, example)
+      requireOwnership(req, track)
       // delete the example ONLY IF the above didn't throw
-      example.deleteOne()
+      track.deleteOne()
     })
     // send back 204 and no content if the deletion succeeded
     .then(() => res.sendStatus(204))

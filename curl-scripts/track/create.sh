@@ -1,13 +1,13 @@
 #!/bin/bash
 
-TOKEN="29bfc51c03610c29b735d9c31a7a1aff"
+TOKEN="de6b495b3da5bc91bc70b9ae39665634"
 DATE="2022-04-12"
-ACTIVITY="Bike"
-LOCATION="Airport Rd"
-DISTANCE="6 miles"
-DURATION="1 mile"
-WITH="Kayla"
-COMMENTS="Very windy and cold"
+ACTIVITY="walk"
+LOCATION="neightborhood"
+DISTANCE="3 miles"
+DURATION="1 hour"
+WITH="Kay"
+COMMENTS="windy and blustery, storm front moving in"
 
 
 API="http://localhost:4741"
