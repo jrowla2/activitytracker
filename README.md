@@ -2,27 +2,15 @@
 
 ## Introduction
 
-This is an app to track outdoor activities of various types that the user can specify, such as mountain biking, kayaking, hiking, skiing, etc. It will be able to record all relevant data and display for user on their dashboard.
-
-## How To Use
-
-To start the app, first create an account by signing-up, then sign-in. Once signed-in, you will be brought to your user dashboard.
-
-The user dashboard will display your info, allow you to add new activity and see your past activities. 
-
-To add a new activity, hit the Track button and it will bring you to the Track page where you can enter all the data from your activity. Hit the Save button to save your data and bring you back to your dashboard.
-
-You an update and delete any activity from the dashboard page.
-
-You can change your password and log out at the top of the user dashboard page.
-
-** Please be aware that this is a simulated authorization for user sign-up and sign-in. Do not use real email and password as that data is not secure. **
+This is the backend for my app to track outdoor activities of various types that the user can specify, such as mountain biking, kayaking, hiking, skiing, etc. It will be able to record all relevant data and display for user on their dashboard.
 
 #### Access Online
 
-To play the deployed version of this game at its online location, [click here](https://jrowla2.github.io/tictoktoe-client/)
+To visit the deployed app online, [click here](https://jrowla2.github.io/activitytracker-client/).
 
-#### Playing Locally & Making Contributions
+To view the frontend repo, [click here](https://github.com/jrowla2/activitytracker-client).
+
+#### Making Contributions
 
 1. Fork and clone this repository.
 1. Change into the new directory.
@@ -49,3 +37,17 @@ In the planning of this application, an ERD was needed to help visualize the pro
 - As a user, I want to see my lifetime stats if possible.
 - As a user, I want to be able to update an activity.
 - As a user, I want to be able to delete an activity.
+
+#### Technologies Used
+
+Backend:
+- Express.js
+- MongoDB
+- Mongoose
+- JavaScript
+
+Frontend:
+- jQuery
+- HTML/CSS
+- Bootstrap
+- JavaScript
