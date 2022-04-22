@@ -50,7 +50,7 @@ router.get('/tracks/:id', requireToken, (req, res, next) => {
   Track.findById(req.params.id)
     .then(handle404)
     // if `findById` is succesful, respond with 200 and "example" JSON
-    .then(example => res.status(200).json({ example: example.toObject() }))
+    .then(track => res.status(200).json({ track: track.toObject() }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
